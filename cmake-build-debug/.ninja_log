@@ -1,0 +1,6 @@
+# ninja log v5
+0	633	7217543691431243	CMakeFiles/Assignment4.dir/main.cpp.obj	83c931ae668f7282
+635	836	7217543693276296	Assignment4.exe	8e2bed848bd9dc98
+2	66	7217547498159836	CMakeFiles/Assignment4.dir/AlbumCollection.cpp.obj	3d2f51bab7f30027
+10	69	7217547498210072	CMakeFiles/Assignment4.dir/Album.cpp.obj	21f4169b390c7819
+17	450	7217547502013611	CMakeFiles/Assignment4.dir/main.cpp.obj	83c931ae668f7282
