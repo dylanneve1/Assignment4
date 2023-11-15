@@ -18,5 +18,5 @@ void InsertAlbums(){
 }
 int main() {
     InsertAlbums();
-    db.PrintByYear(2021);
+    cout << db.GetNumberAlbums() << endl;
 }

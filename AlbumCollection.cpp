@@ -8,36 +8,96 @@
 
 void AlbumCollection::InsertAlbum(string artist, string title, int year) {
     Album album(artist, title, year);
+    setAlbums.insert(album);
 }
 
 void AlbumCollection::Print() {
+    for (auto& i : setAlbums) {
+        cout << i.GetArtist() << ", " << i.GetTitle() << ", " << i.GetYear() << endl;
+    }
 }
 
 void AlbumCollection::PrintByTitleSubstring(string titleSubstring) {
+    for (auto& i : setAlbums) {
+        if (i.GetTitle().find(titleSubstring) != string::npos) {
+            cout << i.GetArtist() << ", " << i.GetTitle() << ", " << i.GetYear() << endl;
+        }
+    }
 }
 
 void AlbumCollection::PrintByArtist(string artist) {
+    for (auto& i : setAlbums) {
+        if (i.GetArtist() == artist) {
+            cout << i.GetArtist() << ", " << i.GetTitle() << ", " << i.GetYear() << endl;
+        }
+    }
 }
 
 void AlbumCollection::PrintByYear(int year) {
+    for (auto& i : setAlbums) {
+        if (i.GetYear() == year) {
+            cout << i.GetArtist() << ", " << i.GetTitle() << ", " << i.GetYear() << endl;
+        }
+    }
 }
 
 bool AlbumCollection::ContainsTitle(string title) {
+    bool ret;
+    for (auto& i : setAlbums) {
+        if (i.GetTitle() == title) {
+            ret = true;
+            break;
+        } else {
+            ret = false;
+        }
+    }
+    return ret;
 }
 
 bool AlbumCollection::ContainsArtist(string artist) {
+    bool ret;
+    for (auto& i : setAlbums) {
+        if (i.GetArtist() == artist) {
+            ret = true;
+            break;
+        } else {
+            ret = false;
+        }
+    }
+    return ret;
 }
 
 bool AlbumCollection::ContainsYear(int year) {
+    bool ret;
+    for (auto& i : setAlbums) {
+        if (i.GetYear() == year) {
+            ret = true;
+            break;
+        } else {
+            ret = false;
+        }
+    }
+    return ret;
 }
 
 void AlbumCollection::DeleteAlbumByTitle(string titleToSearch) {
+    for (auto &i: setAlbums) {
+        if (i.GetTitle() == titleToSearch) {
+            setAlbums.erase(i);
+        }
+    }
 }
 
 void AlbumCollection::DeleteAlbumsByArtist(string artistToSearch) {
+    for (auto &i: setAlbums) {
+        if (i.GetArtist() == artistToSearch) {
+            setAlbums.erase(i);
+        }
+    }
 }
 
 int AlbumCollection::GetNumberAlbums() {
     int ret;
+    ret = setAlbums.size();
     return ret;
 }
