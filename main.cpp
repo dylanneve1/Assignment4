@@ -5,8 +5,11 @@
 
 using namespace std;
 
-AlbumCollection db;
+#include "AlbumCollection.h"
+#include <iostream>
+using namespace std;
 
+AlbumCollection db;
 void InsertAlbums(){
     db.InsertAlbum("The Beatles", "Sgt Pepper's Lonely Hearts Club Band", 1967);
     db.InsertAlbum("Jay-Z", "The Blueprint", 2001);
@@ -18,5 +21,8 @@ void InsertAlbums(){
 }
 int main() {
     InsertAlbums();
-    cout << db.GetNumberAlbums() << endl;
+    db.Print();
+    cout << "---" << endl;
+    cout << "Delete all albums by artist 'The Beatles'." << endl;
+    db.DeleteAlbumsByArtist("The Beatles"); db.Print();
 }
