@@ -14,15 +14,18 @@ Album::Album(std::string newArtist, std::string newTitle, int newYear) {
 }
 
 std::string Album::GetArtist() const {
-    return this->artist;
+    string ret = this->artist;
+    return ret;
 }
 
 std::string Album::GetTitle() const {
-    return this->title;
+    string ret = this->title;
+    return ret;
 }
 
 int Album::GetYear() const {
-    return this->year;
+    int ret = this->year;
+    return ret;
 }
 
 bool Album::operator==(const Album &itemToCompare) const {
@@ -45,18 +48,22 @@ bool Album::operator==(const Album &itemToCompare) const {
 
 bool Album::operator<(const Album &itemToCompare) const {
     bool ret;
-    if (this->artist.length() > itemToCompare.artist.length()) {
+    if (this->artist.length() < itemToCompare.artist.length()) {
         ret = true;
-    } else {
-        if (this->title.length() > itemToCompare.title.length()) {
+    } else if (this->artist.length() == itemToCompare.artist.length()) {
+        if (this->title.length() < itemToCompare.title.length()) {
             ret = true;
-        } else {
-            if (this->year > itemToCompare.year) {
+        } else if (this->title.length() == itemToCompare.title.length()) {
+            if (this->year < itemToCompare.year) {
                 ret = true;
             } else {
                 ret = false;
             }
+        } else {
+            ret = false;
         }
+    } else {
+        ret = false;
     }
     return ret;
 }
