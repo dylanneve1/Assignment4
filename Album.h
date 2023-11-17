@@ -4,19 +4,25 @@
 
 #ifndef ALBUM_H
 #define ALBUM_H
+
 #include <iostream>
 
 using namespace std;
+
 class Album {
     string artist;
     string title;
     int year;
+    bool printed = 0;
     string displayAs;
 public:
     Album(string newArtist, string newTitle, int newYear);
+
     // getters and setters
     string GetArtist() const;
+
     string GetTitle() const;
+
     int GetYear() const;
 
 
@@ -36,7 +42,7 @@ public:
     // year smaller - true
     // otherwise - false
 
-    operator const char * () const;
+    operator const char *() const;
 };
 
 #endif // ALBUM_H

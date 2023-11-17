@@ -12,13 +12,13 @@ void AlbumCollection::InsertAlbum(string artist, string title, int year) {
 }
 
 void AlbumCollection::Print() {
-    for (auto& i : setAlbums) {
+    for (auto &i: setAlbums) {
         cout << i.GetArtist() << ", " << i.GetTitle() << ", " << i.GetYear() << endl;
     }
 }
 
 void AlbumCollection::PrintByTitleSubstring(string titleSubstring) {
-    for (auto& i : setAlbums) {
+    for (auto &i: setAlbums) {
         if (i.GetTitle().find(titleSubstring) != string::npos) {
             cout << i.GetArtist() << ", " << i.GetTitle() << ", " << i.GetYear() << endl;
         }
@@ -26,7 +26,7 @@ void AlbumCollection::PrintByTitleSubstring(string titleSubstring) {
 }
 
 void AlbumCollection::PrintByArtist(string artist) {
-    for (auto& i : setAlbums) {
+    for (auto &i: setAlbums) {
         if (i.GetArtist() == artist) {
             cout << i.GetArtist() << ", " << i.GetTitle() << ", " << i.GetYear() << endl;
         }
@@ -34,7 +34,7 @@ void AlbumCollection::PrintByArtist(string artist) {
 }
 
 void AlbumCollection::PrintByYear(int year) {
-    for (auto& i : setAlbums) {
+    for (auto &i: setAlbums) {
         if (i.GetYear() == year) {
             cout << i.GetArtist() << ", " << i.GetTitle() << ", " << i.GetYear() << endl;
         }
@@ -43,7 +43,7 @@ void AlbumCollection::PrintByYear(int year) {
 
 bool AlbumCollection::ContainsTitle(string title) {
     bool ret;
-    for (auto& i : setAlbums) {
+    for (auto &i: setAlbums) {
         if (i.GetTitle() == title) {
             ret = true;
             break;
@@ -56,7 +56,7 @@ bool AlbumCollection::ContainsTitle(string title) {
 
 bool AlbumCollection::ContainsArtist(string artist) {
     bool ret;
-    for (auto& i : setAlbums) {
+    for (auto &i: setAlbums) {
         if (i.GetArtist() == artist) {
             ret = true;
             break;
@@ -69,7 +69,7 @@ bool AlbumCollection::ContainsArtist(string artist) {
 
 bool AlbumCollection::ContainsYear(int year) {
     bool ret;
-    for (auto& i : setAlbums) {
+    for (auto &i: setAlbums) {
         if (i.GetYear() == year) {
             ret = true;
             break;
