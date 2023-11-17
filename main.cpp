@@ -10,6 +10,7 @@ using namespace std;
 using namespace std;
 
 AlbumCollection db;
+
 void InsertAlbums(){
     db.InsertAlbum("The Beatles", "Sgt Pepper's Lonely Hearts Club Band", 1967);
     db.InsertAlbum("Jay-Z", "The Blueprint", 2001);
@@ -19,6 +20,7 @@ void InsertAlbums(){
     db.InsertAlbum("The Beatles", "Yellow Submarine", 1969);
     db.InsertAlbum("The Plagiarist", "Future Nostalgia", 2021);
 }
+
 int main() {
     InsertAlbums();
     db.Print();

@@ -48,12 +48,12 @@ bool Album::operator==(const Album &itemToCompare) const {
 
 bool Album::operator<(const Album &itemToCompare) const {
     bool ret;
-    if (this->artist.length() < itemToCompare.artist.length()) {
+    if (this->artist < itemToCompare.artist) {
         ret = true;
-    } else if (this->artist.length() == itemToCompare.artist.length()) {
-        if (this->title.length() < itemToCompare.title.length()) {
+    } else if (this->artist == itemToCompare.artist) {
+        if (this->title < itemToCompare.title) {
             ret = true;
-        } else if (this->title.length() == itemToCompare.title.length()) {
+        } else if (this->title == itemToCompare.title) {
             if (this->year < itemToCompare.year) {
                 ret = true;
             } else {

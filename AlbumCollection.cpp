@@ -89,9 +89,11 @@ void AlbumCollection::DeleteAlbumByTitle(string titleToSearch) {
 }
 
 void AlbumCollection::DeleteAlbumsByArtist(string artistToSearch) {
-    for (auto &i: setAlbums) {
-        if (i.GetArtist() == artistToSearch) {
-            setAlbums.erase(i);
+    while (ContainsArtist(artistToSearch)) {
+        for (auto &i: setAlbums) {
+            if (i.GetArtist() == artistToSearch) {
+                setAlbums.erase(i);
+            }
         }
     }
 }
