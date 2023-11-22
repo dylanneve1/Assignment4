@@ -80,7 +80,6 @@ bool AlbumCollection::ContainsYear(int year) {
 void AlbumCollection::DeleteAlbumByTitle(string titleToSearch) {
     for (auto &i: setAlbums) {
         if (i.GetTitle() == titleToSearch) {
-            found = true;
             setAlbums.erase(i);
             return;
         }
