@@ -13,7 +13,6 @@ class Album {
     string artist;
     string title;
     int year;
-    bool printed = 0;
     string displayAs;
 public:
     Album(string newArtist, string newTitle, int newYear);
