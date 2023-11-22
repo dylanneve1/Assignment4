@@ -13,14 +13,14 @@ void AlbumCollection::InsertAlbum(string artist, string title, int year) {
 
 void AlbumCollection::Print() {
     for (auto &i: setAlbums) {
-        cout << i.GetArtist() << ", " << i.GetTitle() << ", " << i.GetYear() << endl;
+        cout << i.GetArtist() << ", " << i.GetTitle() << " (" << i.GetYear() << ")" << endl;
     }
 }
 
 void AlbumCollection::PrintByTitleSubstring(string titleSubstring) {
     for (auto &i: setAlbums) {
         if (i.GetTitle().find(titleSubstring) != string::npos) {
-            cout << i.GetArtist() << ", " << i.GetTitle() << ", " << i.GetYear() << endl;
+            cout << i.GetArtist() << ", " << i.GetTitle() << " (" << i.GetYear() << ")" << endl;
         }
     }
 }
@@ -28,7 +28,7 @@ void AlbumCollection::PrintByTitleSubstring(string titleSubstring) {
 void AlbumCollection::PrintByArtist(string artist) {
     for (auto &i: setAlbums) {
         if (i.GetArtist() == artist) {
-            cout << i.GetArtist() << ", " << i.GetTitle() << ", " << i.GetYear() << endl;
+            cout << i.GetArtist() << ", " << i.GetTitle() << " (" << i.GetYear() << ")" << endl;
         }
     }
 }
@@ -36,19 +36,16 @@ void AlbumCollection::PrintByArtist(string artist) {
 void AlbumCollection::PrintByYear(int year) {
     for (auto &i: setAlbums) {
         if (i.GetYear() == year) {
-            cout << i.GetArtist() << ", " << i.GetTitle() << ", " << i.GetYear() << endl;
+            cout << i.GetArtist() << ", " << i.GetTitle() << " (" << i.GetYear() << ")" << endl;
         }
     }
 }
 
 bool AlbumCollection::ContainsTitle(string title) {
-    bool ret;
+    bool ret = false;
     for (auto &i: setAlbums) {
         if (i.GetTitle() == title) {
             ret = true;
-            break;
-        } else {
-            ret = false;
         }
     }
     return ret;
@@ -81,20 +78,34 @@ bool AlbumCollection::ContainsYear(int year) {
 }
 
 void AlbumCollection::DeleteAlbumByTitle(string titleToSearch) {
+    bool found = false;
     for (auto &i: setAlbums) {
         if (i.GetTitle() == titleToSearch) {
+            found = true;
             setAlbums.erase(i);
+            if (ContainsTitle(titleToSearch)) {
+                DeleteAlbumByTitle(titleToSearch);
+            }
+            return;
         }
     }
+    cout << "No album found!" << endl;
 }
 
 void AlbumCollection::DeleteAlbumsByArtist(string artistToSearch) {
+    bool found = false;
     while (ContainsArtist(artistToSearch)) {
         for (auto &i: setAlbums) {
             if (i.GetArtist() == artistToSearch) {
+                if (!found) {
+                    found = true;
+                }
                 setAlbums.erase(i);
             }
         }
+    }
+    if (!found) {
+        cout << "No album found!" << endl;
     }
 }
 
